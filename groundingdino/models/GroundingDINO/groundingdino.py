@@ -362,7 +362,7 @@ class GroundingDINO(nn.Module):
         unset_image_tensor = kw.get('unset_image_tensor', True)
         if unset_image_tensor:
             self.unset_image_tensor() ## If necessary
-        return out, hs_enc, hs, encoded_text
+        return out, hs_enc, hs, encoded_text, srcs
 
     @torch.jit.unused
     def _set_aux_loss(self, outputs_class, outputs_coord):
