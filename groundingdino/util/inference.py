@@ -65,7 +65,7 @@ def predict(
     image = image.to(device)
 
     with torch.no_grad():
-        outputs, _, _, _ = model(image[None], captions=[caption])
+        outputs, _, _, _, _ = model(image[None], captions=[caption])
 
     prediction_logits = outputs["pred_logits"].cpu().sigmoid()[0]  # prediction_logits.shape = (nq, 256)
     prediction_boxes = outputs["pred_boxes"].cpu()[0]  # prediction_boxes.shape = (nq, 4)
